@@ -1,27 +1,38 @@
-# Laravel PHP Framework
+# ShortUrlService
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+На стороне сервера Laravel 5.2
+На стороне клиента jQuery
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Краткое описание
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Пользователь добавляет url формата  http://anydomain/any/path/
+Если формат не верный возвращается ошибка
+Если такая ссылка имеется в базе, пользователю возрващается короткая ссылка
+Если такой ссылки нет в базе, она добавляется и пользователю возрващается короткая ссылка
 
-## Official Documentation
+Короткая ссылка представляется в формате youdoma.in/shortid
+где shortidid-сконвертированное представление id из базы
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Процесс перехода обратный
+shortidid конвертируется в 10чное представление, и проверяется наличие id в базе. Если id найдет, происходит редирект, если нет, выводиться ошибка. 
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## Установка
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+git clone https://github.com/bbbn/short.git
+cd short
+composer install
+cp .env.example .env
+/редактируем настройки подключения к базе
+php artisan key:generate
+php artisan migrate
 
-## License
+рабочий проект лежит по адресу /short/public
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## Пример
+
+Посмотреть пример работы [тут](http://proremont54.ru).
+
+
