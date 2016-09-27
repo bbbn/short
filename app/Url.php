@@ -48,7 +48,7 @@ class Url extends Model
 
 
   private function dec2link($id) {
-    $digits='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZа';
+    $digits='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $link='';
     do {
         $dig=$id%62;
