@@ -6,9 +6,9 @@ function call() {
           data: msg,
           success: function(data) {
             console.log( data);
-            if(data['answer']==0)
+            if(data['error']==0)
             {
-              $("#answer").html("Short url: <a href='"+data['answer']+"'>"+data['answer']+"</a>");
+              $("#answer").html("Short url: <a target='_blank' href='"+data['answer']+"'>"+data['answer']+"</a>");
               $("#answer").removeClass("hide");
               $("#answer").removeClass("alert-danger");
               $("#answer").addClass("alert-success");

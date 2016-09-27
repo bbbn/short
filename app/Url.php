@@ -41,8 +41,11 @@ class Url extends Model
 	  }
 	  else //->pluck('name')
 	  {
-	  	$array['error']=2;
-      $array['answer']='ссылка не найдена';
+      $this->url=$string;
+      $this->save();
+      $x=$this->where('url','=',$string)->pluck('id');
+	  	$array['error']=0;
+      $array['answer']=str_replace("/add", "", "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."/".(string)$this->dec2link($x[0]));
       return $array;
 	  }
 	}
