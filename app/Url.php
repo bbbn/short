@@ -22,7 +22,9 @@ class Url extends Model
 // }
 // else return 0;
    	if (filter_var($string, FILTER_VALIDATE_URL) === false) {
-     return ('ссылка кривая');
+     $array['error']=1;
+      $array['answer']='Unvalid url';
+      return $array;
 	} else {
 	  if($this->where('url','=',$string)->count())
 	  {
@@ -32,12 +34,16 @@ class Url extends Model
 	  	//return $x;
 	  	//echo "<pre>";
 	  	//var_dump($_SERVER);
-	  	return "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."/".(string)$this->dec2link($x[0]);
+      $array['error']=0;
+      $array['answer']=str_replace("/add", "", "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."/".(string)$this->dec2link($x[0]));
+	  	return $array;
 	  	
 	  }
 	  else //->pluck('name')
 	  {
-	  	return ('ссылка не найдена');
+	  	$array['error']=2;
+      $array['answer']='ссылка не найдена';
+      return $array;
 	  }
 	}
    	//return(filter_var($string, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED));

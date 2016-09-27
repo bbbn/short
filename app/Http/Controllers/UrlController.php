@@ -39,9 +39,8 @@ class UrlController extends Controller
         }
         else
         {
-
-
-        return "Error ".$id;
+            return view("welcome",[
+                        'err'=>1]);
         }
     	 //return redirect('http://ya.ru');
     }

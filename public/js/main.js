@@ -6,9 +6,26 @@ function call() {
           data: msg,
           success: function(data) {
             console.log( data);
+            if(data['answer']==0)
+            {
+              $("#answer").html("Short url: <a href='"+data['answer']+"'>"+data['answer']+"</a>");
+              $("#answer").removeClass("hide");
+              $("#answer").removeClass("alert-danger");
+              $("#answer").addClass("alert-success");
+            }
+            else  {
+              $("#answer").html(data['answer']);
+              $("#answer").removeClass("hide");
+              $("#answer").removeClass("alert-success");
+              $("#answer").addClass("alert-danger");
+            }
+
           },
           error:  function(xhr, str){
-	           alert('Возникла ошибка: ' + xhr.responseCode);
+	           $("#answer").html("Short url: <a href='"+data+"'>"+data+"</a>");
+            $("#answer").removeClass("hide");
+            $("#answer").removeClass("alert-success");
+            $("#answer").addClass("alert-danger");
           }
         });
  

@@ -2,6 +2,27 @@
 
 @section('content')
     <div class="container">
+         @if ($err == 1)
+  
+      <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Error!</strong>  Short url not found #
+</div>
+  @elseif ($err == 2)
+      <p class="bg-danger">Нельзя первести самому себе</p>
+
+
+  @elseif ($err == 3)
+      <p class="bg-warning">На текущем счете меньше денег необходимой суммы. Переведена вся сумма</p>
+  
+
+    @elseif ($err == 4)
+      <p class="bg-danger">Отрицательный баланс отправителя</p>
+  @else
+
+
+     
+  @endif
         <div class="col-sm-offset-2 col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -10,7 +31,7 @@
 
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
-                 
+                
 
                     <!-- New Task Form -->
                     <form  method="POST" class="form-horizontal" id="formid" action="javascript:void(null);" onsubmit="call()">
@@ -39,6 +60,8 @@
             </div>
 
             <!-- Current Tasks -->
+            <div id="answer"  class="alert  hide" role="alert"></div>
+            
          
         </div>
     </div>

@@ -14,7 +14,12 @@
 
 
 Route::get('/', function () {
-   return view('welcome');
+   return view('welcome',[
+    
+    'err'=>0
+    ]);
+
+   
 
 });
 Route::post('/add', 'UrlController@add');
