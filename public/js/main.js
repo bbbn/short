@@ -5,7 +5,7 @@ function call() {
           url: './add',
           data: msg,
           success: function(data) {
-            console.log( data);
+            //console.log( data);
             if(data['error']==0)
             {
               $("#answer").html("Short url: <a target='_blank' href='"+data['answer']+"'>"+data['answer']+"</a>");

@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-btn fa-plus"></i>Add URL
+                                    <i class="fa fa-btn fa-plus"></i>Get  shortURL
                                 </button>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
             </div>
 
             <!-- Current Tasks -->
-            <div id="answer"  class="alert  hide" role="alert"></div>
+            <div id="answer"  class="alert alert-success hide" role="alert"></div>
             
          
         </div>
