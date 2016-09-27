@@ -14,15 +14,15 @@ class Url extends Model
    public function getShort($string)
    {
 
-
+    #проверка валидности ссылки
    	if (filter_var($string, FILTER_VALIDATE_URL) === false) 
     {
       $array['error']=1;
       $array['answer']='invalid url';
       return $array;
 	  } 
-    else 
-    {
+    else #если валидация успешная проверяем наличие ссылки и возвращаем короткую 
+    { 
   	  if($this->where('url','=',$string)->count())
   	  {
 
@@ -78,6 +78,7 @@ class Url extends Model
       return $id; 
   } 
 
+  #проверяем наличие id и возвращаем ссылку либо ошибку
   public function redirect($id)
   {
   	if($this->where('id','=',$this->link2dec($id))->count())

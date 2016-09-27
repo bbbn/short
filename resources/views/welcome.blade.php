@@ -8,16 +8,7 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Error!</strong>  Short url not found #
 </div>
-  @elseif ($err == 2)
-      <p class="bg-danger">Нельзя первести самому себе</p>
-
-
-  @elseif ($err == 3)
-      <p class="bg-warning">На текущем счете меньше денег необходимой суммы. Переведена вся сумма</p>
-  
-
-    @elseif ($err == 4)
-      <p class="bg-danger">Отрицательный баланс отправителя</p>
+ 
   @else
 
 
